@@ -1,19 +1,9 @@
-﻿namespace Leetcode
-{
-	public class MinCameraCover // https://leetcode.com/problems/binary-tree-cameras/
-    {
+﻿using Leetcode.models;
 
-        public class TreeNode {
-            public int val;
-            public TreeNode left;
-            public TreeNode right;
-            public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
-                this.val = val;
-                this.left = left;
-                this.right = right;
-            }
-        }
- 
+namespace Leetcode
+{
+	internal class MinCameraCover // https://leetcode.com/problems/binary-tree-cameras/
+    {
         public class Solution
         {
             public int MinCameraCover(TreeNode root)

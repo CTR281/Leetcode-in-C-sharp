@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Leetcode.models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +12,6 @@ namespace Leetcode
 {
     internal class LeafSimilar
     {
-          public class TreeNode {
-              public int val;
-              public TreeNode left;
-              public TreeNode right;
-              public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
-                  this.val = val;
-                  this.left = left;
-                  this.right = right;
-              }
-          }
-
         public class Solution // https://leetcode.com/problems/leaf-similar-trees/
         {
             public bool LeafSimilar(TreeNode root1, TreeNode root2)
