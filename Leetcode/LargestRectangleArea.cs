@@ -28,6 +28,45 @@ namespace Leetcode
                 }
                 return res;
             }
+
+            public int LargestRectangleArea2(int[] heights)
+            {
+                int n = heights.Length;
+                int[] left = new int[n];
+                int[] right = new int[n];
+                Array.Fill(left, -1);
+                Array.Fill(right, n);
+
+                Stack<int> ms = new();
+
+                for (int k = 0; k < n; k++)
+                {
+                    while (ms.Count > 0 && heights[ms.Peek()] >= heights[k])
+                    {
+                        ms.Pop();                       
+                    }
+                    if (ms.Count > 0) left[k] = ms.Peek();
+                    ms.Push(k);
+                }
+                ms.Clear();
+
+                for (int k = n - 1; k >= 0; k--)
+                {
+                    while (ms.Count > 0 && heights[ms.Peek()] >= heights[k])
+                    {
+                        ms.Pop();
+                    }
+                    if (ms.Count > 0) right[k] = ms.Peek();
+                    ms.Push(k);
+                }
+
+                int res = 0;
+                for (int k = 0; k < n; k++)
+                {
+                    res = Math.Max(res, (right[k] - left[k] - 1) * heights[k]);
+                }
+                return res;
+            }
         }
     }
 }
