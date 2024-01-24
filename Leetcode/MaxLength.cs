@@ -11,7 +11,7 @@ namespace Leetcode
     {
         public class Solution
         {
-            private class Trie
+            private class Trie // TODO: prevent duplicate computations
             {
                 public string root;
                 public HashSet<char> charSet = new();
