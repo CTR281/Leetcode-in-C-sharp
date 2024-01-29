@@ -29,7 +29,7 @@ namespace Leetcode
                 if (dp[n][k] != 0) return dp[n][k];
                 for (int i = 0; i < n; i++)
                 {
-                    dp[n][k] = (dp[n][k] + f(n - 1, k - i, dp)) % (1_000_000_000 + 7); 
+                    dp[n][k] = (dp[n][k] + TP(n - 1, k - i, dp)) % (1_000_000_000 + 7); 
                 }
                 return dp[n][k];
             }
