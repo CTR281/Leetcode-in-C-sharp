@@ -8,8 +8,8 @@ namespace Leetcode.models
 {
     internal interface ITestable
     {
-        public ISolution solution { get; }
+        public ISolution solution { get; set; }
 
-        public Test test { get; set; }
+        public TestBase test { get; set; }
     }
 }

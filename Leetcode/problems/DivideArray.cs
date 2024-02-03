@@ -1,19 +1,17 @@
 ﻿using Leetcode.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class DivideArray : ITestable
+    internal class DivideArray: ITestable // https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/
     {
-        public ISolution solution { get; } = new Solution();
-        public Test test { get; set; }
+        public ISolution solution {  get; set; }
 
-        public DivideArray() { 
-            test = new DivideArrayTest(this);
+        public TestBase test { get; set; }
+
+        public DivideArray(ISolution s)
+        {
+            solution = s;
+            test = new Test(this);
         }
         public class Solution: ISolution
         {
@@ -39,15 +37,26 @@ namespace Leetcode.problems
             }
         }
 
-        public class DivideArrayTest: Test
+        public class Test : TestBase
         {
-            public DivideArrayTest(DivideArray p) : base(p)
+            public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[2] { new int[9] { 1, 3, 4, 8, 7, 9, 3, 5, 1 }, 2 }, new int[3][] { new int[3] { 1, 1, 3 }, new int[3] { 3, 4, 5 }, new int[3] { 7, 8, 9 } }) };
+
+            public override bool Assert(object x, object y)
             {
+                IList<IList<int>> testResult = (x as IList<IList<int>>)!;
+                IList<IList<int>> expectedOutput = (y as IList<IList<int>>)!;
+
+                if (testResult.Count != expectedOutput.Count) return false;
+                int n = testResult.Count;
+                for (int k = 0; k < n; k++)
+                {
+                    if (!testResult[k].SequenceEqual(expectedOutput[k])) return false;
+                }
+                return true;
             }
 
-            // public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[2] { new int[9] { 1, 3, 4, 8, 7, 9, 3, 5, 1 }, 2 }, new int[3][] { new int[3] { 1, 1, 3 }, new int[3] { 3, 4, 5 }, new int[3] { 7, 8, 9 } }) };
-            public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[2] { new int[6] { 1, 3, 3, 2, 7, 3 }, 3 }, new int[] { }) };
-
+            public Test(DivideArray p) : base(p) { }
         }
+
     }
 }

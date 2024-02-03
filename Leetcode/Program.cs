@@ -10,8 +10,11 @@ namespace Leetcode
             CloseStrings.Solution closeStrings = new CloseStrings.Solution();
             Console.WriteLine(closeStrings.CloseStrings("cabbb", "abbccc"));
 
-            DivideArray problem = new DivideArray();
-            Console.WriteLine(problem.test.RunTests());
+            SequentialDigits sequentialDigits = new SequentialDigits(new SequentialDigits.Solution());
+            Console.WriteLine(sequentialDigits.test.ExecuteTests());
+
+            DivideArray divideArray = new DivideArray(new DivideArray.Solution());
+            Console.WriteLine(divideArray.test.ExecuteTests());
         }
     }
 }

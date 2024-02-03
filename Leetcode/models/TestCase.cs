@@ -9,7 +9,7 @@ namespace Leetcode.models
     internal class TestCase
     {
         public object[] inputParameters { get; set; }
-        public object expectedOutput {  get; set; }
+        public object expectedOutput { get; set; }
 
         public TestCase(object[] inputParameters, object expectedOutput)
         {
