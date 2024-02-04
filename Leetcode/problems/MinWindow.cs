@@ -78,5 +78,53 @@ namespace Leetcode.problems
                 return hasResult ? s.Substring(start, length) : "";
             }
         }
+
+        public class Solution2
+        {
+            public string MinWindow(string s, string t)
+            {
+                int n = s.Length;
+                int m = t.Length;
+                if (n < m) return "";
+
+                Dictionary<char, int> map = new Dictionary<char, int>();
+                foreach (char c in t)
+                {
+                    if (!map.ContainsKey(c)) map.Add(c, 0);
+                    map[c]++;
+                }
+
+                int start = 0;
+                int length = n + 1;
+                int left = 0;
+                int right = 0;
+                int count = 0;
+
+                while (right < n)
+                {
+                    if (map.ContainsKey(s[right]))
+                    {
+                        map[s[right]]--;
+                        if (map[s[right]] >= 0) count++;
+                    }
+                    while (count == m)
+                    {
+                        if (map.ContainsKey(s[left]))
+                        {
+                            if (right - left + 1 < length)
+                            {
+                                start = left;
+                                length = right - left + 1;
+                            }
+                            map[s[left]]++;
+                            if (map[s[left]] > 0) count--;
+                        }
+                        left++;
+                    }
+                    right++;
+                }
+                return length > n ? "" : s.Substring(start, length);
+            }
+        }
     }
 }
