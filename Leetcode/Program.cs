@@ -15,6 +15,9 @@ namespace Leetcode
 
             DivideArray divideArray = new DivideArray(new DivideArray.Solution());
             Console.WriteLine(divideArray.test.ExecuteTests());
+
+            GroupAnagrams.Solution3 groupAnagrams = new GroupAnagrams.Solution3();
+            groupAnagrams.GroupAnagrams(new string[] { "bdddddddddd", "bbbbbbbbbbc" });
         }
     }
 }
