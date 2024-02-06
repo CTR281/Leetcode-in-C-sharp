@@ -16,5 +16,28 @@ namespace Leetcode.models
             this.inputParameters = inputParameters;
             this.expectedOutput = expectedOutput;
         }
+
+        public static TestCase parseTestCase(string userInput)
+        {
+            throw new NotImplementedException();
+            // inputParameters: [1, [3, 4, 5], true]
+            // expectedOutput: [1, 2, 3] || true || 1
+            // testCase: [
+            //  [1, [3, 4, 5], true],
+            //  [1, 2, 3]
+            // ]
+            // testCases: [
+            //  [
+            //      [1, [3, 4, 5], true],
+            //      [1, 2, 3]
+            //  ],
+            //  [
+            //      [1, [3, 4, 5], true],
+            //      [1, 2, 3]
+            //  ]
+            // ]
+
+
+        }
     }
 }

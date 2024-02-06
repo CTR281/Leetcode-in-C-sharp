@@ -10,14 +10,17 @@ namespace Leetcode
             CloseStrings.Solution closeStrings = new CloseStrings.Solution();
             Console.WriteLine(closeStrings.CloseStrings("cabbb", "abbccc"));
 
-            SequentialDigits sequentialDigits = new SequentialDigits(new SequentialDigits.Solution());
-            Console.WriteLine(sequentialDigits.test.ExecuteTests());
+/*            SequentialDigits sequentialDigits = new SequentialDigits(new SequentialDigits.Solution());
+            Console.WriteLine(sequentialDigits.ExecuteTests());*/
 
-            DivideArray divideArray = new DivideArray(new DivideArray.Solution());
-            Console.WriteLine(divideArray.test.ExecuteTests());
+/*            DivideArray divideArray = new DivideArray(new DivideArray.Solution());
+            Console.WriteLine(divideArray.ExecuteTests());*/
 
             GroupAnagrams.Solution3 groupAnagrams = new GroupAnagrams.Solution3();
             groupAnagrams.GroupAnagrams(new string[] { "bdddddddddd", "bbbbbbbbbbc" });
+
+/*            Rob rob = new Rob(new Rob.Solution());
+            Console.WriteLine(rob.ExecuteTests());*/
         }
     }
 }

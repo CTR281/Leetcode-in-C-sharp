@@ -2,17 +2,12 @@
 
 namespace Leetcode.problems
 {
-    internal class DivideArray: ITestable // https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/
+    internal class DivideArray: Testable // https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/
     {
-        public ISolution solution {  get; set; }
+        protected override TestBase test { get; set; }
 
-        public TestBase test { get; set; }
+        public DivideArray(ISolution s, string userInput): base(s) => test = new Test(this, userInput);
 
-        public DivideArray(ISolution s)
-        {
-            solution = s;
-            test = new Test(this);
-        }
         public class Solution: ISolution
         {
             public int[][] DivideArray(int[] nums, int k)
@@ -37,25 +32,16 @@ namespace Leetcode.problems
             }
         }
 
-        public class Test : TestBase
+        private class Test : TestBase
         {
-            public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[2] { new int[9] { 1, 3, 4, 8, 7, 9, 3, 5, 1 }, 2 }, new int[3][] { new int[3] { 1, 1, 3 }, new int[3] { 3, 4, 5 }, new int[3] { 7, 8, 9 } }) };
+            //public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[2] { new int[9] { 1, 3, 4, 8, 7, 9, 3, 5, 1 }, 2 }, new int[3][] { new int[3] { 1, 1, 3 }, new int[3] { 3, 4, 5 }, new int[3] { 7, 8, 9 } }) };
 
             public override bool Assert(object x, object y)
             {
-                IList<IList<int>> testResult = (x as IList<IList<int>>)!;
-                IList<IList<int>> expectedOutput = (y as IList<IList<int>>)!;
-
-                if (testResult.Count != expectedOutput.Count) return false;
-                int n = testResult.Count;
-                for (int k = 0; k < n; k++)
-                {
-                    if (!testResult[k].SequenceEqual(expectedOutput[k])) return false;
-                }
-                return true;
+                return Assert((IList<IList<int>>)x, (IList<IList<int>>)y);
             }
 
-            public Test(DivideArray p) : base(p) { }
+            public Test(DivideArray p, string userInput) : base(p, userInput) { }
         }
 
     }

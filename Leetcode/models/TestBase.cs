@@ -4,25 +4,64 @@ namespace Leetcode.models
 {
     internal abstract class TestBase
     {
-        public TestBase(ITestable p) { 
+        public TestBase(Testable p, string userInput)
+        {
             problem = p;
+            testCases = parseTestCases(userInput);
         }
-        public ITestable problem { get; set; }
-        public abstract List<TestCase> testCases { get; set; } // TODO: implement parseTestCases()
+        public Testable problem { get; set; }
+        public List<TestCase> testCases { get; set; } 
 
-        public abstract bool Assert(object x, object y); // TODO: implement multiple signatures
+        public List<TestCase> parseTestCases(string userInput) // TODO: implement
+        {
+            throw new NotImplementedException();
+            // [[1, 2, 3],3]
+        }
+
+        public abstract bool Assert(object x, object y);
+
+        public bool Assert<T>(IList<IList<T>> x, IList<IList<T>> y)
+        {
+            IList<IList<int>> testResult = (x as IList<IList<int>>)!;
+            IList<IList<int>> expectedOutput = (y as IList<IList<int>>)!;
+
+            if (testResult.Count != expectedOutput.Count) return false;
+            int n = testResult.Count;
+            for (int k = 0; k < n; k++)
+            {
+                if (!testResult[k].SequenceEqual(expectedOutput[k])) return false;
+            }
+            return true;
+        }
+
+        public bool AssertAnyOrder<T>(IList<IList<T>> x, IList<IList<T>> y) // TODO: implement
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Assert<T>(IEnumerable<T> x, IEnumerable<T> y)
+        {
+            IList<int> testResult = (x as IList<int>)!;
+            IList<int> expectedOutput = (y as IList<int>)!;
+            return testResult.SequenceEqual(expectedOutput);
+        }
+
+        public bool AssertAnyOrder<T>(IEnumerable<T> x, IEnumerable<T> y) // TODO: implement
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Assert<T>(T x, T y) where T : struct
+        {
+            return x.Equals(y);
+        }
+
 
         public bool ExecuteTests()
         {
-            MethodInfo solutionEntryPoint =
-                problem.solution.GetType().GetMethod(problem.GetType().Name) ??
-                throw new Exception("Solution's entry point not found. Make sure the name of the problem class matches the name of the solution's entry point.");
-
-            return testCases.TrueForAll(testCase => {
-                object testResult =
-                    solutionEntryPoint.Invoke(problem.solution, testCase.inputParameters) ??
-                    throw new Exception("Could not invoke solution.");
-                return Assert(testResult, testCase.expectedOutput);
+            return testCases.TrueForAll(testCase =>
+            {
+                return Assert(problem.RunSolution(testCase.inputParameters), testCase.expectedOutput);
             });
         }
     }
