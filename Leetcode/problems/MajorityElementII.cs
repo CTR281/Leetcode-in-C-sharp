@@ -12,22 +12,14 @@ namespace Leetcode.problems
         {
             public IList<int> MajorityElementII(int[] nums)
             {
-                int element1 = 0, element2 = 0, count1 = 0, count2 = 0;
+                int element1 = int.MinValue, element2 = int.MinValue, count1 = 0, count2 = 0;
                 foreach (int num in nums)
                 {
-                    if (count1 == 0 && num != element2)
-                    {
-                        count1 = 1;
-                        element1 = num;
-                    }
-                    else if (count2 == 0 && num != element1)
-                    {
-                        count2 = 1;
-                        element2 = num;
-                    }
-                    else if (num == element1) count1++;
-                    else if (num == element2) count2++;
-                    else
+                    if (count1 == 0 && num != element2) element1 = num;
+                    if (count2 == 0 && num != element1) element2 = num;
+                    if (num == element1) count1++;
+                    if (num == element2) count2++;
+                    if (num != element1 && num != element2)
                     {
                         count1--;
                         count2--;
