@@ -47,5 +47,34 @@
                 return i;
             }
         }
+
+        public class Solution2
+        {
+            public int FurthestBuilding(int[] heights, int bricks, int ladders)
+            {
+                if (heights.Length == 1) return 0;
+                PriorityQueue<int, int> heap = new();
+
+                for (int k = 1; k < heights.Length; k++)
+                {
+                    int height = heights[k] - heights[k - 1];
+                    if (height > 0)
+                    {
+                        heap.Enqueue(height, -height);
+                        bricks -= height;
+                        if (bricks < 0)
+                        {
+                            if (ladders > 0)
+                            {
+                                bricks += heap.Dequeue();
+                                ladders--;
+                            }
+                            else return k - 1;
+                        }
+                    }
+                }
+                return heights.Length - 1;
+            }
+        }
     }
 }
