@@ -28,11 +28,10 @@ namespace Leetcode.problems
 
         public class Test : TestBase
         {
-            //public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[] { 100, 300 }, new int[] { 123, 234 }) };
 
             public override bool Assert(object x, object y)
             {
-                return Assert((IList<int>)x, (IList<int>)y);
+                return Assert((IList<int>)x, ((object[])y).Cast<long>().ToArray());
             }
             public Test(SequentialDigits p, string userInput) : base(p, userInput) { }
         }
