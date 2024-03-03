@@ -1,4 +1,4 @@
-﻿using Leetcode.models;
+﻿using Leetcode.models.leetcode;
 
 namespace Leetcode.problems
 {

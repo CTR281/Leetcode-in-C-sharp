@@ -1,4 +1,4 @@
-﻿using Leetcode.models;
+﻿using Leetcode.models.leetcode;
 using System;
 using System.Collections.Generic;
 using System.Linq;

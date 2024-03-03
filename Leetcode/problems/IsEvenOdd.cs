@@ -1,4 +1,4 @@
-﻿using Leetcode.models;
+﻿using Leetcode.models.leetcode;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace Leetcode.problems
                 bool isEven = true;
 
                 while (next.Count > 0)
-                {
+                { 
                     int levelNextCount = next.Count;
                     TreeNode last = next.Dequeue();
                     if (isEven && last.val % 2 == 0) return false;
