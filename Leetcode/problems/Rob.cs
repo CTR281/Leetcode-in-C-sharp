@@ -37,7 +37,7 @@ namespace Leetcode.problems
             }
         }
 
-        public class Test : TestBase
+        private class Test : TestBase
         {
             //public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[] { new int[] { 30, 40, 50 } }, 100 )};
             public Test(Rob p, string userInput) : base(p, userInput) { }

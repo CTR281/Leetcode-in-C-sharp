@@ -34,8 +34,6 @@ namespace Leetcode.problems
 
         private class Test : TestBase
         {
-            //public override List<TestCase> testCases { get; set; } = new List<TestCase> { new TestCase(new object[2] { new int[9] { 1, 3, 4, 8, 7, 9, 3, 5, 1 }, 2 }, new int[3][] { new int[3] { 1, 1, 3 }, new int[3] { 3, 4, 5 }, new int[3] { 7, 8, 9 } }) };
-
             public override bool Assert(object x, object y)
             {
                 return Assert((IList<IList<int>>)x, (IList<IList<int>>)y);

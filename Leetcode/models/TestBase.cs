@@ -4,21 +4,23 @@ namespace Leetcode.models
 {
     internal abstract class TestBase
     {
+        public Testable problem;
+        public TestCase testCase;
+
         public TestBase(Testable p, string userInput)
         {
             problem = p;
-            testCases = parseTestCases(userInput);
+            List<Type> argTypes =
+            [             
+                .. problem.SolutionParametersTypes(),
+                new List<object>().GetType(),
+                problem.SolutionReturnType(),
+                new List<object>().GetType(),
+            ];
+            testCase = new TestCase(userInput, argTypes);
         }
-        public Testable problem { get; set; }
-        public List<TestCase> testCases { get; set; } 
 
-        public List<TestCase> parseTestCases(string userInput) // TODO: implement
-        {
-            throw new NotImplementedException();
-            // [[1, 2, 3],3]
-        }
-
-        public abstract bool Assert(object x, object y);
+        public abstract bool Assert(object x, object y); // TODO: deduce assert to use here, from solution args/return types
 
         public bool Assert<T>(IList<IList<T>> x, IList<IList<T>> y)
         {
@@ -57,12 +59,9 @@ namespace Leetcode.models
         }
 
 
-        public bool ExecuteTests()
+        public bool ExecuteTests() // TODO: move testCase property into arg
         {
-            return testCases.TrueForAll(testCase =>
-            {
-                return Assert(problem.RunSolution(testCase.inputParameters), testCase.expectedOutput);
-            });
+            return Assert(problem.RunSolution(testCase.InputParameters), testCase.ExpectedOutput);
         }
     }
 }
