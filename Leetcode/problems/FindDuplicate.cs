@@ -6,19 +6,30 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class FindDuplicate
+    internal class FindDuplicate // https://leetcode.com/problems/find-the-duplicate-number/
     {
         public class Solution
         {
             public int FindDuplicate(int[] nums)
             {
-                int n = nums.Length;
-                int result = 0;
-                foreach (int num in nums)
+                int slow = nums[0];
+                int fast = nums[0];
+                
+                while (true)
                 {
-                    result += num;
+                    slow = nums[slow];
+                    fast = nums[nums[fast]];
+                    if (slow == fast) break;
                 }
-                return (n - 1) * (n) / 2 - result;
+
+                slow = nums[0];
+                while (slow != fast)
+                {
+                    slow = nums[slow];
+                    fast = nums[fast];
+                }
+
+                return slow;
             }
         }
     }
