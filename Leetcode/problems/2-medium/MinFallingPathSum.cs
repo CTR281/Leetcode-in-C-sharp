@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class MinFallingPathSum // https://leetcode.com/problems/minimum-falling-path-sum/solutions/4590165/memoization-without-tle
+    internal class MinFallingPathSum // https://leetcode.com/problems/minimum-falling-path-sum/
     {
         public class Solution
         {

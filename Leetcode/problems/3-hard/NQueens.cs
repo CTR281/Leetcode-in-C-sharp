@@ -1,6 +1,6 @@
 ﻿namespace Leetcode.problems
 {
-    public class NQueen
+    public class NQueen // https://leetcode.com/problems/n-queens/
     {
         public class Solution
         {

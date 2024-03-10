@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class FindWinners
+    internal class FindWinners // https://leetcode.com/problems/find-players-with-zero-or-one-losses/
     {
         public class Solution
         {

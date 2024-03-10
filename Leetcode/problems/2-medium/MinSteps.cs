@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class MinSteps
+    internal class MinSteps // https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/
     {
         public class Method1
         {

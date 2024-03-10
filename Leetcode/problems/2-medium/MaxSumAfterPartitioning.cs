@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class MaxSumAfterPartitioning
+    internal class MaxSumAfterPartitioning // https://leetcode.com/problems/partition-array-for-maximum-sum/
     {
         public class Solution
         {

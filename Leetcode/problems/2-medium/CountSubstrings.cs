@@ -1,8 +1,14 @@
-﻿namespace Leetcode.problems
+﻿using Leetcode.models;
+
+namespace Leetcode.problems
 {
-    public class CountSubstrings // https://leetcode.com/problems/palindromic-substrings/
+    internal class CountSubstrings : Testable // https://leetcode.com/problems/palindromic-substrings/
     {
-        public class Solution
+        protected override TestBase test { get; set; }
+
+        public CountSubstrings(ISolution s, string userInput) : base(s) => test = new Test(this, userInput);
+
+        public class Solution : ISolution
         {
             public int CountSubstrings(string s)
             {
@@ -72,6 +78,13 @@
                 }
                 return res;
             }
+        }
+
+        private class Test : TestBase
+        {
+            public Test(CountSubstrings p, string userInput) : base(p, userInput) { }
+
+            public override bool Assert(object x, object y) => Assert((int)x, (int)y);
         }
     }
 }

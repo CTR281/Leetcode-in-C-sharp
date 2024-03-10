@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class HalvesAreLike
+    internal class HalvesAreLike // https://leetcode.com/problems/determine-if-string-halves-are-alike/
     {
         public class Solution
         {

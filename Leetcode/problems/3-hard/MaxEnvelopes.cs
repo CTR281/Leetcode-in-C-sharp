@@ -1,6 +1,6 @@
 ﻿namespace Leetcode.problems
 {
-    public class MaxEnvelopes
+    public class MaxEnvelopes // https://leetcode.com/problems/russian-doll-envelopes/
     {
         public class Solution // wrong answer, I keep it for history
         {

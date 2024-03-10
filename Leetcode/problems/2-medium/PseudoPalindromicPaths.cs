@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class PseudoPalindromicPaths
+    internal class PseudoPalindromicPaths // https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/
     {
         /**
          * Definition for a binary tree node.

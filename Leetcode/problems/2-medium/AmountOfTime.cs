@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Leetcode.problems
 {
-    internal class AmountOfTime
+    internal class AmountOfTime // https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
     {
         public class Solution
         {

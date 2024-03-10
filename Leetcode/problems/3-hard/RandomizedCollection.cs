@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class RandomizedCollection
+    internal class RandomizedCollection // https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/
     {
         public class Solution
         {

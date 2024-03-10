@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class UniqueOccurences // https://leetcode.com/problems/unique-number-of-occurrences/solutions/4583214/map-set-return-early/ EASY
+    internal class UniqueOccurences // https://leetcode.com/problems/unique-number-of-occurrences/
     {
         public class Solution
         {

@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Leetcode.problems
 {
-    internal class RemoveElement
+    internal class RemoveElement // https://leetcode.com/problems/remove-element/
     {
         public class Solution // Unnecessarily complicated - O(1)
         {

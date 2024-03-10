@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class MaxLength
+    internal class MaxLength // https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/
     {
         public class Solution
         {

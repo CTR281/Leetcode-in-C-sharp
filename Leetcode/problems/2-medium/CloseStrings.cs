@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leetcode.problems
 {
-    internal class CloseStrings
+    internal class CloseStrings // https://leetcode.com/problems/determine-if-two-strings-are-close/
     {
         public class Solution
         {
