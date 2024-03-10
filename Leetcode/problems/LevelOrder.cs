@@ -2,7 +2,7 @@
 
 namespace Leetcode.problems
 {
-    internal class LevelOrder
+    internal class LevelOrder // https://leetcode.com/problems/binary-tree-level-order-traversal/
     {
 
         public class Solution
@@ -41,6 +41,33 @@ namespace Leetcode.problems
                     if (next.node.left != null) queue.Enqueue(new QueueItem(next.node.left, next.level + 1));
                     if (next.node.right != null) queue.Enqueue(new QueueItem(next.node.right, next.level + 1));
                 }
+                return result;
+            }
+        }
+
+        public class Solution2
+        {
+            public IList<IList<int>> LevelOrder(TreeNode root)
+            {
+                Queue<TreeNode> queue = new();
+                if (root != null) queue.Enqueue(root);
+
+                List<IList<int>> result = new();
+
+                while (queue.Count() > 0)
+                {
+                    int next = queue.Count;
+                    List<int> level = new List<int>();
+                    while (next-- > 0)
+                    {
+                        TreeNode node = queue.Dequeue();
+                        if (node.left != null) queue.Enqueue(node.left);
+                        if (node.right != null) queue.Enqueue(node.right);
+                        level.Add(node.val);
+                    }
+                    result.Add(level);
+                }
+
                 return result;
             }
         }
