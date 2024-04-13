@@ -38,7 +38,7 @@ namespace Leetcode.problems._3_hard
                     result += Math.Max(0, Math.Min(height[left[k]], height[right[k]]) - height[k]);
                 }
 
-                return result;
+                 return result;
             }
         }
     }
