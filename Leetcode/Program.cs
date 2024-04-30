@@ -1,4 +1,8 @@
-﻿using Leetcode.problems;
+﻿using Leetcode.models;
+using Leetcode.problems;
+using Leetcode.problems._1_easy;
+using Leetcode.problems._2_medium;
+using Leetcode.problems._3_hard;
 
 namespace Leetcode
 {
@@ -6,21 +10,8 @@ namespace Leetcode
     {
         static void Main()
         {
-            // Instantiate problem classes here
-            CloseStrings.Solution closeStrings = new CloseStrings.Solution();
-            Console.WriteLine(closeStrings.CloseStrings("cabbb", "abbccc"));
-
-/*            SequentialDigits sequentialDigits = new SequentialDigits(new SequentialDigits.Solution());
-            Console.WriteLine(sequentialDigits.ExecuteTests());*/
-
-/*            DivideArray divideArray = new DivideArray(new DivideArray.Solution());
-            Console.WriteLine(divideArray.ExecuteTests());*/
-
-            GroupAnagrams.Solution3 groupAnagrams = new GroupAnagrams.Solution3();
-            groupAnagrams.GroupAnagrams(new string[] { "bdddddddddd", "bbbbbbbbbbc" });
-
-/*            Rob rob = new Rob(new Rob.Solution());
-            Console.WriteLine(rob.ExecuteTests());*/
+            ValidPath.Solution problem = new ValidPath.Solution();
+            problem.ValidPath(3, [[0, 1], [1, 2], [2, 0]], 0, 2);
         }
     }
 }
