@@ -10,8 +10,8 @@ namespace Leetcode
     {
         static void Main()
         {
-            ValidPath.Solution problem = new ValidPath.Solution();
-            problem.ValidPath(3, [[0, 1], [1, 2], [2, 0]], 0, 2);
+            MincostToHireWorkers.Solution problem = new MincostToHireWorkers.Solution();
+            problem.MincostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3);
         }
     }
 }
