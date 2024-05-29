@@ -10,8 +10,8 @@ namespace Leetcode
     {
         static void Main()
         {
-            MincostToHireWorkers.Solution problem = new MincostToHireWorkers.Solution();
-            problem.MincostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3);
+            NumSteps.Solution problem = new NumSteps.Solution();
+            problem.NumSteps("1101");
         }
     }
 }
