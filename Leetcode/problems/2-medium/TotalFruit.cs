@@ -68,6 +68,7 @@ public class TotalFruit
                     countPick1 = 1;
                 }
             }
+            result = Math.Max(result, countBasket);
 
             return result;
         }
